@@ -34,3 +34,5 @@ settings/*
 
 # Ignore generated config
 generated/*
+
+\.idea/*

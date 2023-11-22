@@ -2,8 +2,12 @@ output "ec2_instance_dns" {
   value = aws_eip.openvpn_eip.public_dns
 }
 
-output "ec2_instance_ip" {
+output "ec2_instance_ipv4" {
   value = aws_eip.openvpn_eip.public_ip
+}
+
+output "ec2_instance_ipv6" {
+  value = [aws_instance.openvpn.ipv6_addresses]
 }
 
 output "connection_string" {

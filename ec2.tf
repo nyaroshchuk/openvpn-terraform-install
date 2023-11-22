@@ -35,6 +35,7 @@ resource "aws_instance" "openvpn" {
   instance_type               = var.instance_type
   key_name                    = aws_key_pair.openvpn.key_name
   subnet_id                   = aws_subnet.openvpn.id
+  ipv6_address_count          = 1
 
   vpc_security_group_ids = [
     aws_security_group.openvpn.id,
@@ -55,7 +56,7 @@ resource "aws_instance" "openvpn" {
 
 resource "aws_eip" "openvpn_eip" {
   instance = aws_instance.openvpn.id
-  vpc      = true
+  domain = "vpc"
 }
 
 resource "null_resource" "openvpn_bootstrap" {
